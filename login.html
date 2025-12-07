@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url(mon.jpg);background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    min-height: 200px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+.form-wrapper.hidden {
+    display: none;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+.form-header h2 {
+    color: #2c1810;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #8b5a3c;
+    box-shadow: 0 0 0 3px rgba(139, 90, 60, 0.1);
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -10px;
+    left: 15px;
+    font-size: 12px;
+    color: #8b5a3c;
+    background: white;
+    padding: 0 5px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+}
+
+.checkbox-container input {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.checkbox-container input:checked + .checkmark {
+    background: #8b5a3c;
+    border-color: #8b5a3c;
+}
+
+.checkbox-container input:checked + .checkmark:after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+}
+
+.forgot-link {
+    color: #8b5a3c;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: #6b4423;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #8b5a3c, #6b4423);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 90, 60, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.form-footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #8b5a3c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.form-footer a:hover {
+    color: #6b4423;
+}
+        
+
+
+
+
+
+
+
+    </style>
+    
+    
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            
+            <div class="form-wrapper" id="loginForm">
+                <div class="form-header">
+                    <h1>
+
+                    </h1>
+                   
+                    <h2>Welcome Back</h2>
+                    <p>Login in to your Coffee House account</p>
+                </div>
+                
+                <form class="auth-form">
+                    <div class="input-group">
+                        <input type="email" id="loginEmail" required>
+                        <label for="loginEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="loginPassword" required>
+                        <label for="loginPassword">Password</label>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">log in</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
+                </div>
+            </div>
+            
+        
+            <div class="form-wrapper hidden" id="signupForm">
+                <div class="form-header">
+                    <h2>Join Coffee House</h2>
+                    <p>Create your account and start brewing</p>
+                </div>
+                
+                <form class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="signupName" required>
+                        <label for="signupName">Full Name</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="email" id="signupEmail" required>
+                        <label for="signupEmail">Email Address</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="signupPassword" required>
+                        <label for="signupPassword">Password</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="confirmPassword" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            I agree to the Terms & Conditions
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" onclick="toggleForm()">Sign In</a></p>
+                </div>
+                 <div class="form-footer">
+                    <p>New customer? Register here <a href="register.html" >rigister</a></p>
+                 </div>
+                
+            </div>
+        </div>
+        
+        <div class="coffee-background">
+           
+    
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            
+            loginForm.classList.toggle('hidden');
+            signupForm.classList.toggle('hidden');
+        }
+    </script>
+  
+</body>
+</html>

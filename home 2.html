@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right-Aligned Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+       
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: url(rigr.jpg)no-repeat center center/cover;
+            line-height: 1.5;
+        }
+
+         .main-header {
+            background-color: #bd5902;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+      
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none; 
+            display: flex; 
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .main-nav a {
+            display: block;
+            padding: 15px;
+            text-decoration: none; 
+            color: rgb(8, 8, 8);
+            transition: background-color 0.3s ease;}
+           
+        .main-nav a:hover{
+            color: #fffcfc;
+        }
+        .lin{
+          background: url(you.avif) center center/cover; 
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          color: rgba(100, 47, 4, 0.977);
+          height: 100vh;
+
+        }
+          main {
+            flex: 1;
+        }
+        
+        .coffee-footer {
+            background-color: #2c1810;
+            color: #f5e6d3;
+            padding: 40px 0 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .content-section {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto; 
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content-section h1 {
+            color: #5a3a22; 
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section img,
+        .content-section video {
+            display: block; 
+            max-width: 100%; 
+            height: auto;  
+            border-radius: 15px;
+            margin: 1.5rem auto; 
+        }
+
+        .content-section video {
+            box-shadow: 0px 5px 15px 3px rgba(169, 113, 66, 0.5); 
+        }
+
+       
+        .scroller {
+            overflow: hidden;
+            padding: 2rem 0;
+            background: linear-gradient(to right, #fff, #f4f4f4, #fff);
+        }
+
+        .scroller__inner {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            animation: animate 40s linear infinite;
+        }
+
+        .scroller:hover .scroller__inner {
+            animation-play-state: paused;
+        }
+
+        .scroller__inner img {
+            width: 16rem; 
+            height: 12rem; 
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+       
+        @keyframes animate {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #d4a574;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #f5e6d3;align-items: center; justify-content: center;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #ff0088;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #d4a574;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: #2c1810;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #b8935f;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #4a3426;
+            color: #a89585;
+        }
+        
+        .coffee-icon {
+            font-size: 24px;
+            margin: 0 5px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="title" style="font-size: 1.5cm;">Momo cafe ☕</div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li> <a href="home 2.html"><i class="fas fa-home"></i>Home</a></li>
+                <li> <a href="manu.html"><i class="fas fa-mug-hot"></i>Menu</a></li>
+                <li> <a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
+                <li> <a href="contest.html"><i class="fas fa-envelope"></i>Contact</a></li>
+                <li> <a href="login.html"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section class="lin">
+    <div class="content">
+      <h2 style="font-size: 1cm;">Welcome to momo Cafe</h2>
+      <p style="font-size: 25px; font-style: oblique;">The best morning start  with coffee and cratitude</p> <br>
+    </div>
+  </section>
+    <main>
+     
+     <section class="content-section">
+        <h1>The Rise of the Coffee house</h1>
+        
+        <p>Whatever the actual origin of coffee, its stimulating effect undoubtedly made it popular in Arabia. Ironically, though some Islamic authorities pronounced the drink intoxicating and therefore prohibited by the Qurʾān, many Muslims were attracted to the beverage as a substitute for alcohol, also prohibited by the Qurʾān. Despite the threat of severe penalties, coffee drinking spread rapidly among Arabs and their neighbors and even gave rise to a new social and cultural entity, the coffeehouse.</p>
+        <img src="b.webp" alt="A vibrant coffee shop with people inside">
+        <p>Coffeehouses became centers of social and intellectual exchange, where people from all walks of life could gather to discuss news, politics, and business. These establishments played a crucial role in the cultural life of the Middle East and later, Europe.</p>
+     </section>
+
+     
+     <div class="scroller"> 
+        <div class="scroller__inner">
+            <img src="OIPo.webp" alt="Close-up of roasted coffee beans">
+            <img src="ani.jpeg" alt="Latte art in a coffee cup">
+            <img src="OIP (1).jpeg" alt="An old-fashioned coffee grinder">
+            <img src="OIP (2).jpeg" alt="A cup of black coffee on a saucer">
+            <img src="OIP (3).jpeg" alt="Coffee beans spilling from a sack">
+            <img src="OIP (4).jpeg" alt="A coffee plantation with green plants">
+            <img src="o.webp" alt="Freshly brewed coffee being poured">
+        </div>
+     </div>
+
+     <section class="content-section">
+        <h1>Cultivation Across the Coffee Belt</h1>
+        <p>Until the close of the 17th century the world’s limited supply of coffee was obtained almost entirely from the province of Yemen in southern Arabia. But with the increasing popularity of the beverage, the propagation of the plant spread rapidly to Java and other islands of the Indonesian archipelago in the 17th century and to the Americas in the 18th century. Coffee cultivation was started in the Hawaiian Islands in 1825.</p>
+        <video src="could.mp4" autoplay muted loop></video>
+        
+        <h2>The Coffee Belt</h2>
+        <p>The "Coffee Belt" refers to the equatorial regions of the world where coffee is most successfully grown, typically between the Tropics of Cancer and Capricorn. This area provides the perfect combination of altitude, rainfall, and temperature for coffee plants to thrive.</p>
+        <img src="coffee-belt-world-map.webp" alt="World map showing the Coffee Belt region">
+     </section>
+   </main>
+   <main>
+    
+  </main>
+    
+    <footer class="coffee-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3> The Coffee House</h3>
+                    <p>Brewing perfection since 2020. Your daily dose of happiness in every cup.</p>
+                    <div class="social-links">
+                       <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                       <a href="https://www.instagram.com/?utm_source=pwa_homescreen&__pwa=1" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                       <a href="https://x.com/?lang=en-in" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                       <a href="https://www.youtube.com/watch?v=6DyhxS9wFL8&list=RDNU8ZenvCVy0&index=9" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li> <a href="home 2.html">➡️ Home</a></li>
+                        <li> <a href="manu.html">➡️ Manu</a></li>
+                        <li> <a href="about.html">➡️ About</a></li>
+                        <li> <a href="contest.html">➡️ contect</a></li>
+                        <li> <a href="login.html">➡️ log in</a></li>
+                        <li> <a href="register.html">➡️ register</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Coffee Menu</h3>
+                    <ul>
+                        <li><a href="manu.html">🧾 India products</a></li>
+                        <li><a href="manu.html">🧾 south korea</a></li>
+                        <li><a href="manu.html">🧾 japan products</a></li>
+                        <li><a href="manu.html">🧾 China products</a></li>
+                        <li><a href="manu.html">🧾 spain products</a></li>
+                        <li><a href="manu.html">🧾 Canada products</a></li>
+                        <li><a href="manu.html">🧾 Italy products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>🌎 address:1437 Main Street, City, Country </li>
+                        <li>📲 Phone: (123) 456-7890 or (123) 770-8357</p></li>
+                        <li>💌 E-mail:djalok@example.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Coffee House. All rights reserved. <span class="coffee-icon">☕</span> Made with love and caffeine</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop - Add to Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+          body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url(manu.jpeg)no-repeat center center/cover;
+        }
+
+         .main-header {
+            background: rgb(255, 111, 2);
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 17px;
+            align-items: center;}
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none; 
+            display: flex; 
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .main-nav a {
+            display: block;
+            padding: 15px;
+            text-decoration: none; 
+            color: rgb(8, 8, 8);
+            transition: background-color 0.3s ease;}
+           
+        .main-nav a:hover{
+            color: #fffcfc;
+        }
+        .search {
+         margin: 0; 
+      
+         }
+        .search-input {
+              padding: 0.5em;
+              font-size: 1rem;
+              width: 250px; 
+              border-radius:16px; }
+        .search-button {
+               padding: 0.5em 1em;
+               font-size: 1rem;
+               cursor: pointer;
+               background:rgb(210, 118, 4);
+               color:rgb(40, 8, 8);
+               border-radius:16px; }
+            .search-button a{
+                text-decoration: none;
+            }
+        .container {
+            display: flex;
+            flex-wrap: wrap; 
+            padding: 20px;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #ded5d5;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            margin: 0;
+            color: #f4f2f1;
+        }
+
+      
+        .products {
+            flex: 7; 
+            margin-right: 50px;
+            
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            box-shadow: 0px 8px 8px 8px rgba(234, 169, 95, 0.845);
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #e0ddd7;
+            border-radius: 8px; 
+            background-color: #efaa6bee;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px 6px rgba(49, 176, 21, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px 9px rgba(240, 238, 238, 0.938);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 7px;
+            box-shadow: 0px 7px 4px 0 rgb(23, 23, 24);
+        }
+
+        .product-card h3 {
+            margin: 15px 0 5px 0;
+            color: #4a3737;
+        }
+
+        .product-card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ca4102;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #e87c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #1b1515;
+        }
+        .n{
+            width: 100px;height: 100px;margin: 0;
+            padding: 0;align-items: center;justify-content: center;
+        }
+        .l{
+            background-color: #04fa31;
+            color: rgb(20, 22, 21);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+        .l:hover{
+            background-color: #fa7d1d;
+        }
+    </style>
+</head>
+<body>
+  <header class="main-header">
+        <div class="title" style="font-size: 1.5cm;" >Momo cafe  ☕</div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li> <a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+                <li> <a href="manu.html"><i class="fas fa-mug-hot"></i>Menu</a></li>
+                <li> <a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
+                <li> <a href="contest.html"><i class="fas fa-envelope"></i>Contact</a></li>
+                <li> <a href="login.html"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <header>
+        <h1>Our Coffee Selection</h1> 
+        <div class="search">
+            <form action="/search" method="get" role="search">
+                <label for="site-search" class="visually-hidden"></label>
+                    <input type="search" id="site-search"name="q" class="search-input" placeholder="Search…" aria-label="Search through site content">
+                    <button type="submit" class="search-button"><a href="manu.html">Search</a></button>
+            </form>
+        </div>
+    </header>
+
+    <div class="container">
+       
+        <section class="products">
+            <div class="product-grid">
+            
+                <div class="product-card">
+                    <img src="Maxpresso Instant Coffee.webp" alt="Espresso">
+                    <h3> Maxpresso Instant Coffee</h3>
+                    <h4><strong>place :</strong> japan</h4>
+                    <p class="price">$2.50</p>
+                    <button class="add-to-cart-btn" data-id="1" data-name="Classic Espresso" data-price="2.50">Add to Cart 🛒</button>
+                </div>
+               
+                <div class="product-card">
+                    <img src="Cafe Du Monde Coffee Chicory.jpeg"alt="Latte">
+                    <h3>Cafe Du Monde Coffee Chicory</h3>
+                    <h4><strong>place :</strong>
+Switzerland</h4>
+                    <p class="price">$3.75</p>
+                    <button class="add-to-cart-btn" data-id="2" data-name="Creamy Latte" data-price="3.75">Add to Cart 🛒</button>
+                </div>
+            
+                <div class="product-card">
+                    <img src="Four Sigmatic Think Mushroom Coffee.webp" alt="Cappuccino">
+                    <h3>Four Sigmatic Think Mushroom Coffee</h3>
+                    <h4><strong>place :</strong>United States</h4>
+                    <p class="price">$3.50</p>
+                    <button class="add-to-cart-btn" data-id="3" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Hawaii Kona Coffee.jpg" alt="Americano">
+                    <h3>Hawaii Kona Coffee</h3>
+                    <h4><strong>place :</strong>japan</h4>
+                    <p class="price">$3.00</p>
+                    <button class="add-to-cart-btn" data-id="4" data-name="Bold Americano" data-price="3.00">Add to Cart 🛒</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="Jamaica Blue Mountain Coffee.jpeg" alt="Cappuccino">
+                    <h3>Jamaica Blue Mountain Coffee</h3>
+                    <h4><strong>place :</strong>Canada</h4>
+                    <p class="price">$7.50</p>
+                    <button class="add-to-cart-btn" data-id="5" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="Kanu Instant Coffee.jpeg" alt="Cappuccino">
+                    <h3>Kanu Instant Coffee</h3>
+                    <h4><strong>place :</strong>Australia</h4>
+                    <p class="price">$5.50</p>
+                    <button class="add-to-cart-btn" data-id="6" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Kenya AA Coffee.jpeg" alt="Cappuccino">
+                    <h3>Kenya AA Coffee</h3>
+                    <h4><strong>place :</strong>South korea</h4>
+                    <p class="price">$9.50</p>
+                    <button class="add-to-cart-btn" data-id="7" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="friends coffee.jpg" alt="Cappuccino">
+                    <h3>friends coffee</h3>
+                    <h4><strong>place :</strong>Sweden</h4>
+                    <p class="price">$11.50</p>
+                    <button class="add-to-cart-btn" data-id="8" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Lavazza Qualità Oro Whole Bean Coffee,.jpeg" alt="Cappuccino">
+                    <h3>Lavazza Qualità Oro Whole Bean Coffee</h3>
+                    <h4><strong>place :</strong>South korea</h4>
+                    <p class="price">$5.50</p>
+                    <button class="add-to-cart-btn" data-id="9" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="lovers coffee.jpg" alt="Cappuccino">
+                    <h3>lovers coffee</h3>
+                    <h4><strong>place :</strong>china</h4>
+                    <p class="price">$15.50</p>
+                    <button class="add-to-cart-btn" data-id="10" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Lotte Coffee.jpeg" alt="Cappuccino">
+                    <h3>Lotte Coffee</h3>
+                    <h4><strong>place :</strong>china</h4>
+                    <p class="price">$13.50</p>
+                    <button class="add-to-cart-btn" data-id="11" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Maxim Mocha Gold Mild Coffee Mix.webp" alt="Cappuccino">
+                    <h3>Maxim Mocha Gold Mild Coffee Mix</h3>
+                    <h4><strong>place :</strong>japan</h4>
+                    <p class="price">$4.00</p>
+                    <button class="add-to-cart-btn" data-id="12" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Namyang Coffee.webp" alt="Cappuccino">
+                    <h3>Namyang Coffee</h3>
+                    <h4><strong>place :</strong>canada</h4>
+                    <p class="price">$3.90</p>
+                    <button class="add-to-cart-btn" data-id="13" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Starbucks Ground Coffee, Medium Roast Pike Place Roast.webp" alt="Cappuccino">
+                    <h3>Starbucks Ground Coffee, Medium Roast Pike Place Roast</h3>
+                    <h4><strong>place :</strong>Italy</h4>
+                    <p class="price">$5.50</p>
+                    <button class="add-to-cart-btn" data-id="14" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+                 <div class="product-card">
+                    <img src="Tanzania Peaberry Coffee.jpeg" alt="Cappuccino">
+                    <h3>Tanzania Peaberry Coffee</h3>
+                    <h4><strong>place :</strong>spain</h4>
+                    <p class="price">$9.50</p>
+                    <button class="add-to-cart-btn" data-id="15" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+
+                 <div class="product-card">
+                    <img src="Ueshima Coffee.jpeg" alt="Cappuccino">
+                    <h3>Ueshima Coffee</h3>
+                    <h4><strong>place :</strong>
+Austria</h4>
+                    <p class="price">$13.00</p>
+                    <button class="add-to-cart-btn" data-id="16" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+
+                 <div class="product-card">
+                    <img src="Takamura Coffee.jpeg" alt="Cappuccino">
+                    <h3>Takamura Coffee</h3>
+                    <h4><strong>place :</strong>india</h4>
+                    <p class="price">$14.50</p>
+                    <button class="add-to-cart-btn" data-id="17" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart v</button>
+                </div>
+
+
+                 <div class="product-card">
+                    <img src="Cafe Du Monde Coffee Chicory.jpeg" alt="Cappuccino">
+                    <h3>Cafe Du Monde Coffee Chicory</h3>
+                    <h4><strong>place :</strong>japan</h4>
+                    <p class="price">$9.50</p>
+                    <button class="add-to-cart-btn" data-id="18" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+
+                 <div class="product-card">
+                    <img src="Costa Coffee.jpeg" alt="Cappuccino">
+                    <h3>Costa Coffee</h3>
+                    <h4><strong>place :</strong>china</h4>
+                    <p class="price">$6.50</p>
+                    <button class="add-to-cart-btn" data-id="19" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+
+                 <div class="product-card">
+                    <img src="Greybox Coffee.jpeg" alt="Cappuccino">
+                    <h3>Greybox Coffee</h3>
+                    <h4><strong>place :</strong>North Korea</h4>
+                    <p class="price">$5.50</p>
+                    <button class="add-to-cart-btn" data-id="20" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+
+
+                 <div class="product-card">
+                    <img src="Namyang Coffee.webp" alt="Cappuccino">
+                    <h3>Namyang Coffee</h3>
+                    <h4><strong>place :</strong>Spain</h4>
+                    <p class="price">$9.00</p>
+                    <button class="add-to-cart-btn" data-id="21" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                 <div class="product-card">
+                    <img src="loman tea.webp" alt="Cappuccino">
+                    <h3>lemon tea</h3>
+                    <h4><strong>place :</strong></h4>
+                    <p class="price">$10.50</p>
+                    <button class="add-to-cart-btn" data-id="22" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="filter coffe.webp" alt="Cappuccino">
+                    <h3>filter coffe</h3>
+                    <h4><strong>place :</strong>Brazil</h4>
+                    <p class="price">$6.50</p>
+                    <button class="add-to-cart-btn" data-id="23" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="Blue Tokai Coffee.png" alt="Cappuccino">
+                    <h3>Blue Tokai Coffee</h3>
+                    <h4><strong>place :</strong>china</h4>
+                    <p class="price">$8.50</p>
+                    <button class="add-to-cart-btn" data-id="24" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="Bili Hu Coffee.jpg" alt="Cappuccino">
+                    <h3>Bili Hu Coffee</h3>
+                    <h4><strong>place :</strong>south korea</h4>
+                    <p class="price">$7.50</p>
+                    <button class="add-to-cart-btn" data-id="26" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="Bru coffe.jpg" alt="Cappuccino">
+                    <h3>Bru coffe</h3>
+                    <h4><strong>place :</strong>
+Brazil</h4>
+                    <p class="price">$9.50</p>
+                    <button class="add-to-cart-btn" data-id="27" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="loman tea.webp" alt="Cappuccino">
+                    <h3>ice tea</h3>
+                    <h4><strong>place :</strong>Italy</h4>
+                    <p class="price">$24.50</p>
+                    <button class="add-to-cart-btn" data-id="28" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="Omlate.jpeg" alt="Cappuccino">
+                    <h3>Omlate</h3>
+                    <h4><strong>place :</strong>india</h4>
+                    <p class="price">$9.50</p>
+                    <button class="add-to-cart-btn" data-id="29" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="Japanese soft bread.jpeg" alt="Cappuccino">
+                    <h3>Japanese soft bread</h3>
+                    <h4><strong>place :</strong>china</h4>
+                    <p class="price">$5.50</p>
+                    <button class="add-to-cart-btn" data-id="30" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                 <div class="product-card">
+                    <img src="Continental xtra Coffee.png" alt="Cappuccino">
+                    <h3>Continental xtra Coffee</h3>
+                    <h4><strong>place :</strong>south korea</h4>
+                    <p class="price">$09.50</p>
+                    <button class="add-to-cart-btn" data-id="31" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="linm.jpg" alt="Cappuccino">
+                    <h3>coffee</h3>
+                    <h4><strong>place :</strong>japan</h4>
+                    <p class="price">$8.50</p>
+                    <button class="add-to-cart-btn" data-id="32" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="cream bread.jpeg" alt="Cappuccino">
+                    <h3>cream bread</h3>
+                    <h4><strong>place :</strong>china</h4>
+                    <p class="price">$7.50</p>
+                    <button class="add-to-cart-btn" data-id="33" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+                <div class="product-card">
+                    <img src="OIP.webp" alt="Cappuccino">
+                    <h3>Ice Bubble Coffee</h3>
+                    <h4><strong>place :</strong>United States</h4>
+                    <p class="price">$3.50</p>
+                    <button class="add-to-cart-btn" data-id="3" data-name="Frothy Cappuccino" data-price="3.50">Add to Cart 🛒</button>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    
+<div class="n">
+    <button class="l" onclick="history.back()">Go back...</button>
+</div>
+    
+</body>
+</html>

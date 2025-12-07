@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact / Visit Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif;background: url(home.jpg) center center/cover; }
+    .o, .pi {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .o {
+      text-align: center;
+    }
+    .op, .oop {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .op h2, .oop h2 { color: #e64a19; }
+    .op form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .op input, .op textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .op button[type="submit"] {
+      background-color: #ff5722;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.5s;
+    }
+    .op button[type="submit"]:hover {
+      background: #e64a19;
+    }
+    .oop li {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .pi .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .pi .icon a {
+      color: #333;
+      font-size: 24px;
+      transition: color 0.2s;
+    }
+    .pi .icon a:hover {
+      color: #ff5722;
+    }
+        .n{
+            width: 100px;height: 100px;margin: 0;
+            padding: 0;align-items: center;justify-content: center;
+        }
+        .l{
+            background-color: #04fa31;
+            color: rgb(20, 22, 21);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+        .l:hover{
+            background-color: #fa7d1d;
+        }
+  </style>
+</head>
+<body>
+
+    <section class="o" id="p">
+        <div class="op">
+            <h2>Contact Us</h2>
+            <form id="co" onsubmit="return handleSubmit(event)">
+                 <input type="text" id="name"  placeholder="Your Name" required />
+                 <input type="email" id="email" placeholder="Your Email" required />
+                 <textarea rows="5" id="message" placeholder="Your Message" required></textarea>
+                 <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+   
+  
+
+        <div class="pi" id="po">
+            <div class="oop">
+            <h2>Visit Us</h2>
+             <li>address:1437 Main Street, City, Country </li>
+             <li>Phone: (123) 456-7890 or (123) 770-8357</p></li>
+             <li>E-mail:djalok@example.com</li>
+             <h2 class="heading"><span>Follow</span> us</h2>
+                <div class="icon">
+                     <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                     <a href="https://www.instagram.com/?utm_source=pwa_homescreen&__pwa=1" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                     <a href="https://x.com/?lang=en-in" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                     <a href="https://www.youtube.com/watch?v=6DyhxS9wFL8&list=RDNU8ZenvCVy0&index=9" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+        </div>
+    </section>
+
+<div class="n">
+    <button class="l" onclick="history.back()">Go back...</button>
+</div>
+</body>
+</html>
